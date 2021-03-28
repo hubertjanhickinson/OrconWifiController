@@ -1,0 +1,58 @@
+esphome:
+  name: mvtestgroen
+  platform: ESP8266
+  board: d1_mini_pro
+
+wifi:
+  ssid: "OrconTestWifi"
+  password: "WifiModule1234"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Mv2 Fallback Hotspot"
+    password: "8DrjeAjlpeyy"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+output:
+  - platform: esp8266_pwm
+    pin: D6
+    frequency: 1000 Hz
+    id: mv_pwm_out_test
+    inverted: true
+
+switch:
+  - platform: gpio
+    id: bypass
+    name: "mv_unit_speed_bypass_test"
+    pin: 
+      number: D8
+      inverted: False
+
+light:
+  - platform: monochromatic
+    output: mv_pwm_out_test
+    name: "mv_unit_speed_test"
+    gamma_correct: 1
+
+sensor:
+  - platform: pulse_counter
+    pin: D2
+    name: "mv_tacho_test"
+    force_update: true
+    update_interval: 2s
+    accuracy_decimals: 0
+    internal_filter: 250us
+  - platform: pulse_width
+    pin: D1
+    name: "mv_speed_requested_test"
+    update_interval: 5s
+    accuracy_decimals: 8
