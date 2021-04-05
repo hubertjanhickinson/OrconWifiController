@@ -5,7 +5,7 @@ The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" uni
 - Control the fanspeed using a PWM signal
 - Switch between factory control or Home Assistant control
 
-The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos, NodeMCU or similair) and runs ESPHome or Tasmota. A 220V cable is supplied. All the 220V connectors have the samen pinout, so they can be connected in any way possible.
+The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos, NodeMCU or similar) and runs ESPHome or Tasmota. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible.
 
 The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through HA, then the relay must be activated. 
 
