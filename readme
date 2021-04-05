@@ -1,1 +1,20 @@
+The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" unit. Integrating it Home Assistant or your favorite home automation software, it provides the following functions:
 
+- Read the requested speed from the remote or built-in humidity sensor
+- Read the current fanspeed (revolutions / minute)
+- Control the fanspeed using a PWM signal
+- Switch between factory control or Home Assistant control
+
+The above functionality is accomplished by installing the OWC in between the fan and factory controller. A 220V cable is supplied. All the 220V connectors have the samen pinout, so they can be connected in any way possible.
+On the PCB, the following pins are connected:
+Top-left = 1
+Bottom-left = 8
+Top right = 9
+Bottom-right = 16
+
+Pin 3  = Temp/Hum
+Pin 4  = Temp/Hum
+Pin 5  = PWM output to fan
+Pin 7  = Relay
+Pin 11 = Input from factory PCB (PWM)
+Pin 12 = Current fanspeed rpm
