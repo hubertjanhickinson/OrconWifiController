@@ -21,3 +21,6 @@ Pin 5  = PWM output to fan
 Pin 7  = Relay
 Pin 11 = Input from factory PCB (PWM)
 Pin 12 = Current fanspeed rpm
+
+Example of data in Grafana:
+https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png
