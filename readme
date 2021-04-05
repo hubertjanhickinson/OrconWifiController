@@ -1,6 +1,6 @@
 The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" unit. Integrating it Home Assistant or your favorite home automation software, it provides the following functions:
 
-- Read the requested speed from the remote or built-in humidity sensor
+- Read the requested speed from the remote or built-in humidity sensor (level 1, 2 or 3)
 - Read the current fanspeed (revolutions / minute)
 - Control the fanspeed using a PWM signal
 - Switch between factory control or Home Assistant control
