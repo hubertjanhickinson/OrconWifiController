@@ -24,3 +24,6 @@ Pin 12 = Current fanspeed rpm
 
 Example of data in Grafana:
 https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png
+
+Check out this template as well:
+https://gist.github.com/Kalkran/d924a0ada197fa1c68df3708eae4ce86
