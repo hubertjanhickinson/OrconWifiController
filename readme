@@ -15,8 +15,6 @@ Bottom-left = 8
 Top right = 9
 Bottom-right = 16
 
-Pin 3  = Temp/Hum
-Pin 4  = Temp/Hum
 Pin 5  = PWM output to fan
 Pin 7  = Relay
 Pin 11 = Input from factory PCB (PWM)
@@ -26,6 +24,9 @@ The rest of the pins are designed for a Wemos D1 Mini (Pro)
 
 Example of data in Grafana:
 https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png
+
+Example of Home Assistant Lovelace interface:
+https://github.com/hubertjanhickinson/OrconWifiController/blob/main/HA.png
 
 Check out this template as well:
 https://gist.github.com/Kalkran/d924a0ada197fa1c68df3708eae4ce86
