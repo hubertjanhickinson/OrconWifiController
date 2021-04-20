@@ -9,18 +9,15 @@ The above functionality is accomplished by installing the OWC in between the fan
 
 The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through HA, then the relay must be activated. 
 
-On the PCB, the following pins are connected:
-Top-left = 1
-Bottom-left = 8
-Top right = 9
+On the PCB, the following pins are connected:\
+Top-left = 1\
+Bottom-left = 8\
+Top right = 9\
 Bottom-right = 16
 
-Pin 5  = PWM output to fan
-
-Pin 7  = Relay
-
-Pin 11 = Input from factory PCB (PWM)
-
+Pin 5  = PWM output to fan\
+Pin 7  = Relay\
+Pin 11 = Input from factory PCB (PWM)\
 Pin 12 = Current fanspeed rpm
 
 The rest of the pins are designed for a Wemos D1 Mini (Pro)
