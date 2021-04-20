@@ -5,7 +5,7 @@ The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" uni
 - Control the fanspeed using a PWM signal
 - Switch between factory control or Home Assistant control (on/off)
 
-The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos, NodeMCU or similar) and runs ESPHome or Tasmota. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible.
+The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos, NodeMCU or similar) and runs ESPHome. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible.
 
 The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through HA, then the relay must be activated. 
 
@@ -21,6 +21,8 @@ Pin 5  = PWM output to fan
 Pin 7  = Relay
 Pin 11 = Input from factory PCB (PWM)
 Pin 12 = Current fanspeed rpm
+
+The rest of the pins are designed for a Wemos D1 Mini (Pro)
 
 Example of data in Grafana:
 https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png
