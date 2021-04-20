@@ -9,7 +9,7 @@ The OrconWifiController built into an Orcon MVS-15 unit:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiController.jpg" alt="Graphs"/>
 The OrconWifiController is compatible with all Orcon MVS-15 units, as long as they are based on the EBM-Papst R3G190-RC05-20 fan.
 
-The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos, NodeMCU or similar) and runs ESPHome. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible.
+The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos D1 Mini (Pro)) and runs ESPHome firmware. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible.
 
 The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through HA, then the relay must be activated. 
 
