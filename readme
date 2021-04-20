@@ -24,6 +24,7 @@ The rest of the pins are designed for a Wemos D1 Mini (Pro)
 
 Example of data in Grafana:
 https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png
+![alt text](https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png)
 
 Example of Home Assistant Lovelace interface:
 https://github.com/hubertjanhickinson/OrconWifiController/blob/main/HA.png
