@@ -24,7 +24,7 @@ Pin 7  = Relay\
 Pin 11 = Input from factory PCB (PWM)\
 Pin 12 = Current fanspeed rpm
 
-The rest of the pins are designed for a Wemos D1 Mini (Pro)
+The rest of the pins are designed for a Wemos D1 Mini (Pro). If new firmware needs to be flashed to the Wemos, then GPIO 0 and GND need to be connected to enter flash mode.
 
 Example of data in Grafana:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png" alt="Graphs"/>
