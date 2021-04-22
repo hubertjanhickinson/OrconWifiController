@@ -1,17 +1,18 @@
 The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" unit. Integrating it Home Assistant or your favorite home automation software, it provides the following functions:
 
-- Read the requested speed from the remote or built-in humidity sensor (level 1, 2, 3 or humidity sensor) (pulselength / second)
-- Read the current fanspeed (revolutions / minute)
+- Read the requested speed from the remote or built-in humidity sensor. [pulselength in seconds]
+  - It reads the PWM signal which is sent from the factory controller to the fan. So it does not read the actual level (level 1, 2 (humidity sensor) or 3) but you can deduce the current level from the pulselength
+- Read the current fanspeed [revolutions / minute]
 - Control the fanspeed using a PWM signal
-- Switch between factory control or Home Assistant control (on/off)
+- Switch between factory control or Home Assistant control [on/off]
 
 The OrconWifiController built into an Orcon MVS-15 unit:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiController.jpg" alt="Graphs"/>
 The OrconWifiController is compatible with all Orcon MVS-15 units, as long as they are based on the EBM-Papst R3G190-RC05-20 fan.
 
-The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos D1 Mini (Pro)) and runs ESPHome firmware. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible.
+The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos D1 Mini (Pro)) and runs ESPHome firmware. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible. It is also possible to run the OWC standalone, without the factory PCB.
 
-The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through HA, then the relay must be activated. 
+A relay controls if the factory PCB controls the fan, or that the Wemos controls the fan. The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through Home Assistant/Wemos then the relay must be activated.
 
 On the PCB, the following pins are connected:\
 Top-left = 1\
