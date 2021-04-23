@@ -1,4 +1,4 @@
-The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" unit. Integrating it Home Assistant or your favorite home automation software, it provides the following functions:
+The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" unit through Wi-Fi. Integrating it Home Assistant, it provides the following functions:
 
 - Read the requested speed from the remote or built-in humidity sensor. [pulselength in seconds]
   - It reads the PWM signal which is sent from the factory controller to the fan. So it does not read the actual level (level 1, 2 (humidity sensor) or 3) but you can deduce the current level from the pulselength
@@ -36,6 +36,9 @@ Steps to integrate it into Home Assistant:
 - Add an integration in HA using Configuration --> Integrations --> Add integration --> ESPHome
 - Enter the IP address of the OrconWifiController
 - The new sensors/controls should be setup automatically by HA
+
+Selling/buying the OrconWifiController\
+As of now (23 April 2021), I have decided to only start producing the OrconWifiController in a batch of 10 boards minimum. Otherwise, it costs too much time to keep track of everything. If you are interested in buying the OrconWifiController, then I suggest to unite yourself and let me know when I can produce 10 OrconWifiControllers.
 
 Example of data in Grafana:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png" alt="Graphs"/>
