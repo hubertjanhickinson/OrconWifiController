@@ -24,15 +24,15 @@ Version 1.2\
 Pin 5  = PWM output to fan\
 Pin 7  = Relay\
 Pin 11 = Input from factory PCB (PWM)\
-Pin 12 = Current fanspeed rpm
+Pin 12 = Current fanspeed rpm\
 
 Version 1.3\
 Pin  5 = PWM output to fan\
 Pin  7 = Relay\
-Pin  4 = Current fanspeed rpm
+Pin  4 = Current fanspeed rpm\
 Pin  6 = Input from factory PCB (PWM)\
-Pin 11 = SCL for temperature/humidity
-Pin 12 = SDA for temperature/humidity
+Pin 11 = SCL for temperature/humidity\
+Pin 12 = SDA for temperature/humidity\
 
 The rest of the pins are designed for a Wemos D1 Mini (Pro). 
 
