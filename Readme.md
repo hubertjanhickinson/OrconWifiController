@@ -20,10 +20,13 @@ Bottom-left = 8\
 Top right = 9\
 Bottom-right = 16
 
+Version 1.2
 Pin 5  = PWM output to fan\
 Pin 7  = Relay\
 Pin 11 = Input from factory PCB (PWM)\
 Pin 12 = Current fanspeed rpm
+
+Version 1.3
 
 The rest of the pins are designed for a Wemos D1 Mini (Pro). 
 
