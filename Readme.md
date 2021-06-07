@@ -53,7 +53,7 @@ Example of data in Grafana:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png" alt="Graphs"/>
 
 Example of Home Assistant Lovelace interface:
-<img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/HA.png" alt="HA Interface"/>
+<img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/HA2.png" alt="HA Interface"/>
 
 Check out this template as well:
 https://gist.github.com/Kalkran/d924a0ada197fa1c68df3708eae4ce86
