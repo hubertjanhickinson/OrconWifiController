@@ -41,7 +41,7 @@ Steps to integrate it into Home Assistant:
 - Add node in ESPHome
 - Paste YAML code and save.
 - If the Wi-Fi connection works, then the node should change color from red to green.
-- Sometimes the Fallback hotspot does not work automatically on the ESPHome firmware. Either reflash the firmware with your own credentials or setup a temporary Wi-Fi connection using SSID "OrconTestWifi" and password "WifiModule1234". If new firmware needs to be flashed to the Wemos, then GPIO 0 and GND need to be connected during power-on to enter flash mode.
+- Sometimes the Fallback hotspot does not work automatically on the ESPHome firmware. Either reflash the firmware with your own credentials or setup a temporary Wi-Fi connection using SSID "OrconTestWifi" and password "WifiModule1234". If new firmware needs to be flashed to the Wemos, depending on wich board you have, then GPIO 0 and GND need to be connected during power-on to enter flash mode.
 - Add an integration in HA using Configuration --> Integrations --> Add integration --> ESPHome
 - Enter the IP address of the OrconWifiController
 - The new sensors/controls should be setup automatically by HA
