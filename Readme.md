@@ -47,7 +47,7 @@ Steps to integrate it into Home Assistant:
 - The new sensors/controls should be setup automatically by HA
 
 Selling/buying the OrconWifiController\
-You can buy the OrconWifiController at https://www.thejustincaseshop.com/products/orcon-wifi-controller
+You can buy the OrconWifiController at https://www.tindie.com/products/hjhickinson/orconwificontroller/
 
 Example of data in Grafana:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png" alt="Graphs"/>
