@@ -14,6 +14,8 @@ The above functionality is accomplished by installing the OWC in between the fan
 
 A relay controls if the factory PCB controls the fan, or that the Wemos controls the fan. The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through Home Assistant/Wemos then the relay must be activated.
 
+It has been reported that the red LED will flash if you have a CO2 sensor, when the OrconWifiController is in bypass mode. Please be aware before ordering.
+
 On the PCB, the following pins are connected:\
 Top-left = 1\
 Bottom-left = 8\
