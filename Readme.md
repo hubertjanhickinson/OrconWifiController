@@ -12,6 +12,8 @@ The OrconWifiController is compatible with all Orcon MVS-15 units, as long as th
 
 The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos D1 Mini (Pro)) and runs ESPHome firmware. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible. It is also possible to run the OWC standalone, without the factory PCB.
 
+It is also possible to run Tasmota firmware, but the current speed of the fan will not be working. It is still possible to control the speed of the fan, and to turn the relay on and off. But the current speed (huidige toerental) does not work.
+
 A relay controls if the factory PCB controls the fan, or that the Wemos controls the fan. The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through Home Assistant/Wemos then the relay must be activated.
 
 It has been reported that the red LED will flash if you have a CO2 sensor, when the OrconWifiController is in bypass mode. Please be aware before ordering.
