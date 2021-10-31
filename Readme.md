@@ -5,6 +5,7 @@ The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" uni
 - Read the current fanspeed [revolutions / minute]
 - Control the fanspeed using a PWM signal
 - Switch between factory control or Home Assistant control [on/off]
+- Optionally, when you have a 5v BME280 sensor installed, you can read temperature, humidity and air pressure from the ventilated air.
 
 The OrconWifiController built into an Orcon MVS-15 unit:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiController.jpg" alt="Graphs"/>
