@@ -52,8 +52,8 @@ Steps to integrate it into Home Assistant with the default configuration:
 - Add the ESPHome addon in Home Assistant (I don't know if this is necessary but I don't have a way to test this. I list it here just to be sure).
 - In Home Assistant, go to Configuration --> Integrations --> Add integration --> ESPHome.
 - Enter the hostname (mvtest13.local) or IP address of the OrconWifiController and click submit.
--- Using a hostname will be more flexible, but can take some time before it is found by Home Assistant.
--- If you use a IP address, the connection will work immediately, but make sure that your router/accesspoint will not change the IP address of the OrconWifiController, or otherwise Home Assistant will loose connection to it.
+  - Using a hostname will be more flexible, but can take some time before it is found by Home Assistant.
+  - If you use a IP address, the connection will work immediately, but make sure that your router/accesspoint will not change the IP address of the OrconWifiController, or otherwise Home Assistant will loose connection to it.
 - The new sensors/controls should be setup automatically by HA.
 - If not, add the sensors/controls in Lovelace manually.
 - Test the sensors/controls. The relay should work. If you have the optional BME280 temp/humid sensor, this should work as well, but only if it is connected before poweron.
