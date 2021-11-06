@@ -41,15 +41,57 @@ Pin 12 = SDA for temperature/humidity
 
 The rest of the pins are designed for a Wemos D1 Mini (Pro). 
 
-Steps to integrate it into Home Assistant:
-- Supervisor --> Add-on store --> add ESPHome 
-- Add node in ESPHome
-- Paste YAML code and save.
-- If the Wi-Fi connection works, then the node should change color from red to green.
-- Sometimes the Fallback hotspot does not work automatically on the ESPHome firmware. Either reflash the firmware with your own credentials or setup a temporary Wi-Fi connection using SSID "OrconTestWifi" and password "WifiModule1234". If new firmware needs to be flashed to the Wemos, depending on wich board you have, then GPIO 0 and GND need to be connected during power-on to enter flash mode.
-- Add an integration in HA using Configuration --> Integrations --> Add integration --> ESPHome
-- Enter the IP address of the OrconWifiController
-- The new sensors/controls should be setup automatically by HA
+Steps to integrate it into Home Assistant with the default configuration:
+- Do not install it in the MV unit yet.
+- Connect the OrconWifiController with USB cable to laptop/computer.
+- Make sure the Wemos is still installed onto the OrconWifiController.
+- After a minute a Wifi hotspot called OrconWifiController will be created. Connect to it using password 12341234.
+- Use your phone in case it is not visible on your computer/laptop.
+- If there is no popup to automatically configure the Wifi, go to 192.168.4.1 in your browser.
+- Enter the credentials of your WiFi network and click save.
+- Add the ESPHome addon in Home Assistant (I don't know if this is necessary but I don't have a way to test this. I list it here just to be sure).
+- In Home Assistant, go to Configuration --> Integrations --> Add integration --> ESPHome.
+- Enter the hostname (mvtest13.local) or IP address of the OrconWifiController and click submit.
+-- Using a hostname will be more flexible, but can take some time before it is found by Home Assistant.
+-- If you use a IP address, the connection will work immediately, but make sure that your router/accesspoint will not change the IP address of the OrconWifiController, or otherwise Home Assistant will loose connection to it.
+- The new sensors/controls should be setup automatically by HA.
+- If not, add the sensors/controls in Lovelace manually.
+- Test the sensors/controls. The relay should work. If you have the optional BME280 temp/humid sensor, this should work as well, but only if it is connected before poweron.
+- Install the OrconWifiController in the MV unit and start creating automations :)
+- If you want to change anything, follow the steps below.
+
+
+Steps to integrate it into Home Assistant with your own configuration (recommended):
+- Do not install it in the MV unit yet.
+- Add the ESPHome addon in Home Assistant.
+- Create a node in ESPHome. The name you enter here will be the hostname and must reflect the "name" in the YAML.
+- Enter your Wifi credentials.
+- Pick a specific board --> Wemos D1 and Wemos D1 mini.
+- On the Github page, find the YAML code for the corresponding version of your OrconWifiController.
+- Copy and paste the YAML code into the node.
+- Change the "name" field back to your "name" in one of the previous steps.
+- Change the Wifi credentials to match your Wifi network.
+- Make your changes to the YAML. For example, delete the BME280 sensor if you don't have it installed.
+- Click Install.
+- Click Manual download (or use the builtin option to flash through Google Chrome but I have not tested that).
+- Let it compile and save the .bin firmware file somewhere on your laptop/computer.
+- Uninstall the Wemos from the OrconWifiController and connect it through a USB cable to your laptop/computer.
+- Download a ESP flash tool (Tasmotizer or ESPEasyflasher) and flash the firmware to the Wemos.
+- Install the Wemos back to the OrconWifiController and connect it with a USB cable.
+- It will connect to your Wifi network and in ESPHome you should see the node as online.
+- In Home Assistant, go to Configuration --> Integrations --> Add integration --> ESPHome.
+- Enter the hostname (the name you entered earlier) or IP address of the OrconWifiController and click submit.
+- The new sensors/controls should be setup automatically by HA.
+- If not, add the sensors/controls in Lovelace manually.
+- Test the sensors/controls. The relay should work. If you have the optional BME280 temp/humid sensor, this should work as well, but only if it is connected before poweron.
+- Install the OrconWifiController in the MV unit and start creating automations :)
+
+
+Troubleshooting:
+- Connect a USB cable to the OrconWifiController and use Putty with a baudrate of 115200 to see debug information.
+- Install the Terminal addon in Home Assistant and try to ping the hostname. It will respond with the IP address shown.
+- Check your router/accesspoint to see which IP address is given to the OrconWifiController. The MAC address wil start with E8:DB:84.
+
 
 Selling/buying the OrconWifiController\
 You can buy the OrconWifiController at https://www.tindie.com/products/hjhickinson/orconwificontroller/
