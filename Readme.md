@@ -67,7 +67,7 @@ Steps to integrate it into Home Assistant with your own configuration (recommend
 - Create a node in ESPHome. The name you enter here will be the hostname and must reflect the "name" in the YAML.
 - Enter your Wifi credentials.
 - Pick a specific board --> Wemos D1 and Wemos D1 mini.
-- On the Github page, find the YAML code for the corresponding version of your OrconWifiController.
+- On the Github page, find the YAML code (https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Wemos%201.3 is the same as version 1.4) for the corresponding version of your OrconWifiController.
 - Copy and paste the YAML code into the node.
 - Change the "name" field back to your "name" in one of the previous steps.
 - Change the Wifi credentials to match your Wifi network.
