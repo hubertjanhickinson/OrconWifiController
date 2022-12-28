@@ -50,7 +50,10 @@ sensor:
     force_update: true
     update_interval: 2s
     accuracy_decimals: 0
-    internal_filter: 250us
+    internal_filter: 5ms
+    count_mode:
+     falling_edge: INCREMENT
+     rising_edge: DISABLE
   - platform: pulse_width
     pin: D1
     name: "mv_speed_requested_test"
