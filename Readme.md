@@ -95,6 +95,9 @@ Selling/buying the OrconWifiController\
 You can buy the OrconWifiController at https://www.tindie.com/products/hjhickinson/orconwificontroller/  
 </h2>
 
+<br>
+<br>
+
 Example of data in Grafana:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png" alt="Graphs"/>
 
