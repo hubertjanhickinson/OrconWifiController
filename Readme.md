@@ -17,8 +17,6 @@ It is also possible to run Tasmota firmware, but the current speed of the fan wi
 
 A relay controls if the factory PCB controls the fan, or that the Wemos controls the fan. The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through Home Assistant/Wemos then the relay must be activated.
 
-It has been reported that the red LED will flash if you have a CO2 sensor, when the OrconWifiController is in bypass mode. Please be aware before ordering.
-
 On the PCB, the following pins are connected:\
 Top-left = 1\
 Bottom-left = 8\
@@ -92,9 +90,10 @@ Troubleshooting:
 - Install the Terminal addon in Home Assistant and try to ping the hostname. It will respond with the IP address shown.
 - Check your router/accesspoint to see which IP address is given to the OrconWifiController. The MAC address wil start with E8:DB:84.
 
-
+<h2>
 Selling/buying the OrconWifiController\
-You can buy the OrconWifiController at https://www.tindie.com/products/hjhickinson/orconwificontroller/
+You can buy the OrconWifiController at https://www.tindie.com/products/hjhickinson/orconwificontroller/  
+</h2>
 
 Example of data in Grafana:
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Graphs.png" alt="Graphs"/>
