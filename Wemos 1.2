@@ -26,29 +26,28 @@ output:
   - platform: esp8266_pwm
     pin: D6
     frequency: 1000 Hz
-    id: mv_pwm_out_test
+    id: mv_pwm_out
     inverted: true
 
 switch:
   - platform: gpio
     id: bypass
-    name: "mv_unit_speed_bypass_test"
+    name: "Orcon Bypass Relay"
     pin: 
       number: D8
       inverted: False
 
-light:
-  - platform: monochromatic
-    output: mv_pwm_out_test
-    name: "mv_unit_speed_test"
-    gamma_correct: 1
+fan:
+  - platform: speed
+    output: mv_pwm_out
+    name: "Orcon Motor Speed"
 
 sensor:
   - platform: pulse_counter
     pin: D2
-    name: "mv_tacho_test"
+    name: "Orcon RPM Counter"
     force_update: true
-    update_interval: 2s
+    update_interval: 10s
     accuracy_decimals: 0
     internal_filter: 5ms
     count_mode:
@@ -56,6 +55,7 @@ sensor:
      rising_edge: DISABLE
   - platform: pulse_width
     pin: D1
-    name: "mv_speed_requested_test"
-    update_interval: 5s
+    name: "Orcon Factory Remote Control Requested Speed"
+    update_interval: 10s
     accuracy_decimals: 8
+    
