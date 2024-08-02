@@ -1,7 +1,7 @@
 esphome:
-  name: mvtest13
+  name: mvtestgroen
   platform: ESP8266
-  board: d1_mini
+  board: d1_mini_pro
 
 wifi:
   ssid: "OrconTestWifi"
@@ -9,8 +9,8 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "OrconWifiController"
-    password: "12341234"
+    ssid: "Mv2 Fallback Hotspot"
+    password: "8DrjeAjlpeyy"
 
 captive_portal:
 
@@ -21,10 +21,6 @@ logger:
 api:
 
 ota:
-  - platform: esphome
-    password: "WifiModule1234"
-
-i2c:
 
 output:
   - platform: esp8266_pwm
@@ -48,7 +44,7 @@ fan:
 
 sensor:
   - platform: pulse_counter
-    pin: D5
+    pin: D2
     name: "Orcon RPM Counter"
     force_update: true
     update_interval: 10s
@@ -58,18 +54,8 @@ sensor:
      falling_edge: INCREMENT
      rising_edge: DISABLE
   - platform: pulse_width
-    pin: D7
+    pin: D1
     name: "Orcon Factory Remote Control Requested Speed"
     update_interval: 10s
     accuracy_decimals: 8
-  - platform: bme280_i2c
-    temperature:
-      name: "Orcon Temperature"
-      oversampling: 16x
-    pressure:
-      name: "Orcon Pressure"
-    humidity:
-      name: "Orcon Humidity"
-    address: 0x76
-    update_interval: 10s
-
+    
