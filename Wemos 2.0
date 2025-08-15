@@ -44,13 +44,6 @@ switch:
     pin: 
       number: D8
       inverted: False
-  # - platform: gpio
-  #   id: turbo
-  #   name: "Orcon Turbo Relay"
-  #   pin: 
-  #     number: D3
-  #     inverted: False
-
 
 fan:
   - platform: speed
