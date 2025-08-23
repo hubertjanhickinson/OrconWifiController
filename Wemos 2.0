@@ -1,5 +1,5 @@
 esphome:
-  name: OrconWifiController20
+  name: orconwificontroller20
 
 esp8266:
   board: d1_mini
