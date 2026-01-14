@@ -8,7 +8,7 @@ The OrconWifiController is used to control an Orcon "Mechanische Ventilatie" uni
 - Optionally, when you have a 5v BME280 sensor installed, you can read temperature, humidity and air pressure from the ventilated air.
 
 The OrconWifiController built into an Orcon MVS-15 unit:
-<img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiController.jpg" alt="Graphs"/>
+<img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiController.jpg" alt="PCB"/>
 The OrconWifiController is compatible with all Orcon MVS-15 units, as long as they are based on the EBM-Papst R3G190-RC05-20 fan. The OrconWifiController is also suitable for the Orcon Compact 10-RHB; the case needs to be adjusted a bit to make it fit.
 
 The above functionality is accomplished by installing the OWC in between the fan and factory controller. The OWC is controlled by an ESP (Wemos D1 Mini (Pro)) and runs ESPHome firmware. A 220V cable is supplied. All the 220V connectors have the same pinout, so they can be connected in any way possible. It is also possible to run the OWC standalone, without the factory PCB.
@@ -18,7 +18,6 @@ It is also possible to run Tasmota firmware, but the current speed of the fan wi
 A relay controls if the factory PCB controls the fan, or that the Wemos controls the fan. The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through Home Assistant/Wemos then the relay must be activated.
 <img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiControllerDiagram.png" alt="Diagram"/>
 
-The rest of the pins are designed for a Wemos D1 Mini (Pro). 
 
 Steps to integrate it into Home Assistant with the default configuration:
 - Do not install it in the MV unit yet.
@@ -30,7 +29,7 @@ Steps to integrate it into Home Assistant with the default configuration:
 - Enter the credentials of your WiFi network and click save.
 - Add the ESPHome addon in Home Assistant (I don't know if this is necessary but I don't have a way to test this. I list it here just to be sure).
 - In Home Assistant, go to Configuration --> Integrations --> Add integration --> ESPHome.
-- Enter the hostname (mvtest13.local) or IP address of the OrconWifiController and click submit.
+- Enter the hostname (mvtest20.local) or IP address of the OrconWifiController and click submit.
   - Using a hostname will be more flexible, but can take some time before it is found by Home Assistant.
   - If you use a IP address, the connection will work immediately, but make sure that your router/accesspoint will not change the IP address of the OrconWifiController, or otherwise Home Assistant will loose connection to it.
 - The new sensors/controls should be setup automatically by HA.
@@ -55,7 +54,7 @@ Steps to integrate it into Home Assistant with your own configuration (recommend
 - Click Manual download (or use the builtin option to flash through Google Chrome but I have not tested that).
 - Let it compile and save the .bin firmware file somewhere on your laptop/computer.
 - Uninstall the Wemos from the OrconWifiController and connect it through a USB cable to your laptop/computer.
-- Download a ESP flash tool (Tasmotizer or ESPEasyflasher) and flash the firmware to the Wemos.
+- Go to web.esphome.io to flash the firmware onto the Wemos.
 - Install the Wemos back to the OrconWifiController and connect it with a USB cable.
 - It will connect to your Wifi network and in ESPHome you should see the node as online.
 - In Home Assistant, go to Configuration --> Integrations --> Add integration --> ESPHome.
