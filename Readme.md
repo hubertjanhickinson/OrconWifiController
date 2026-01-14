@@ -16,26 +16,7 @@ The above functionality is accomplished by installing the OWC in between the fan
 It is also possible to run Tasmota firmware, but the current speed of the fan will not be working. It is still possible to control the speed of the fan, and to turn the relay on and off. But the current speed (huidige toerental) does not work.
 
 A relay controls if the factory PCB controls the fan, or that the Wemos controls the fan. The default state of the relay is that the factory remote is in control. If you want to control the speed of the fan through Home Assistant/Wemos then the relay must be activated.
-
-On the PCB, the following pins are connected:\
-Top-left = 1\
-Bottom-left = 8\
-Top right = 9\
-Bottom-right = 16
-
-Version 1.2\
-Pin 5  = PWM output to fan\
-Pin 7  = Relay\
-Pin 11 = Input from factory PCB (PWM)\
-Pin 12 = Current fanspeed rpm
-
-Version 1.3 and 1.4\
-Pin  5 = PWM output to fan\
-Pin  7 = Relay\
-Pin  4 = Current fanspeed rpm\
-Pin  6 = Input from factory PCB (PWM)\
-Pin 11 = SCL for temperature/humidity\
-Pin 12 = SDA for temperature/humidity
+<img src="https://github.com/hubertjanhickinson/OrconWifiController/blob/main/OrconWifiControllerDiagram.png" alt="Diagram"/>
 
 The rest of the pins are designed for a Wemos D1 Mini (Pro). 
 
