@@ -1,0 +1,142 @@
+esphome:
+  name: orconwificontrollermqtt
+  on_boot:
+    priority: -100 
+    then:
+      - lambda: |-
+          auto *mqtt_client = mqtt::global_mqtt_client;
+          
+          // Get values from text input fields
+          std::string host = id(mqtt_host_input).state;
+          std::string user = id(mqtt_user_input).state;
+          std::string pass = id(mqtt_pass_input).state;
+
+          if (!host.empty() && host != "empty") {
+            mqtt_client->set_broker_address(host);
+            mqtt_client->set_username(user);
+            mqtt_client->set_password(pass);
+            ESP_LOGI("custom", "MQTT config loaded successfully: %s", host.c_str());
+          }
+
+esp8266:
+  board: d1_mini
+
+wifi:
+  ssid: "OrconTestWifi"
+  password: "WifiModule1234"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "OrconWifiController"
+    password: "12341234"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  - platform: esphome
+    password: "WifiModule1234"
+
+mqtt:
+  broker: "empty"
+  id: my_mqtt_client
+
+web_server:
+  port: 80
+
+text:
+  - platform: template
+    name: "MQTT Hostname/IP address"
+    id: mqtt_host_input
+    mode: text
+    optimistic: true
+    min_length: 0
+    max_length: 64
+    restore_value: yes
+    initial_value: ""
+  - platform: template
+    name: "MQTT Username"
+    id: mqtt_user_input
+    mode: text
+    optimistic: true
+    min_length: 0
+    max_length: 64
+    restore_value: yes
+    initial_value: ""
+  - platform: template
+    name: "MQTT Password"
+    id: mqtt_pass_input
+    mode: text
+    optimistic: true
+    min_length: 0
+    max_length: 64
+    restore_value: yes
+    initial_value: ""
+
+i2c:
+
+output:
+  - platform: esp8266_pwm
+    pin: D6
+    frequency: 1000 Hz
+    id: mv_pwm_out
+    inverted: true
+
+switch:
+  - platform: gpio
+    id: bypass
+    name: "Orcon Bypass Relay"
+    pin: 
+      number: D8
+      inverted: False
+
+fan:
+  - platform: speed
+    output: mv_pwm_out
+    name: "Orcon Motor Speed"
+
+sensor:
+  - platform: pulse_counter
+    pin: D5
+    name: "Orcon RPM Counter"
+    force_update: true
+    update_interval: 10s
+    accuracy_decimals: 0
+    internal_filter: 5ms
+    count_mode:
+     falling_edge: INCREMENT
+     rising_edge: DISABLE
+  - platform: pulse_width
+    pin: D7
+    name: "Orcon Remote Requested Speed"
+    id: orcon_requested_speed
+    update_interval: 10s
+    accuracy_decimals: 8
+  - platform: template
+    name: "Orcon Remote Requested Speed %"
+    unit_of_measurement: "%"
+    accuracy_decimals: 0
+    update_interval: 10s
+    lambda: |-
+      const float min_pulse = 0.0000029;  // at 0% (0 RPM)
+      const float max_pulse = 0.0005332;  // at 100% (3500 RPM)
+      float value = id(orcon_requested_speed).state;
+      float percent = (value - min_pulse) * 100.0 / (max_pulse - min_pulse);
+      if (percent < 0) percent = 0;
+      if (percent > 100) percent = 100;
+      return percent;
+  - platform: bme280_i2c
+    temperature:
+      name: "Orcon Temperature"
+      oversampling: 16x
+    pressure:
+      name: "Orcon Pressure"
+    humidity:
+      name: "Orcon Humidity"
+    address: 0x76
+    update_interval: 10s
