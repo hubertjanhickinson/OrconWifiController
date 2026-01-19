@@ -14,6 +14,7 @@ The reason for separate firmware is because the OrconWifiController will reboot 
 - Once the OrconWifiController connects to your Wifi network, it will obtain an IP address from your router.
 - Go to the OrconWifiController web page by using http://orconwificontrollermqtt/ or use the IP address of the OrconWifiController.
 - If you can see text fields to enter MQTT server details, you are running the correct firmware. If not, you need to flash the correct firmware using http://web.esphome.io/
+- The firmware file you can find here: https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Homey/orconwificontrollermqtt.bin
 
 2. Make sure you have an MQTT broker set up and running.
 - If you do not already have an MQTT broker, you can install one using the Homey app store.
