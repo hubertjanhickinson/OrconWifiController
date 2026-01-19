@@ -27,4 +27,4 @@ The reason for separate firmware is because the OrconWifiController will reboot 
 - Power cycle the OrconWifiController to apply the settings.
 
 4. Add the OrconWifiController to Homey.
-- ?
+- Use the topics in 'OrconWifiControllerTopics.txt' to add MQTT devices in Homey.
