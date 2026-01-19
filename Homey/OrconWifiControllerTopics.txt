@@ -5,6 +5,8 @@ Availability: 'orconwificontroller20/status'
 MQTT Switch 'Orcon Bypass Relay':
 State Topic: 'orconwificontroller20/switch/orcon_bypass_relay/state'
 Command Topic: 'orconwificontroller20/switch/orcon_bypass_relay/command'
+payload_on: "ON"
+payload_off: "OFF"
 
 MQTT Fan 'Orcon Motor Speed':
 State Topic: 'orconwificontroller20/fan/orcon_motor_speed/state'
