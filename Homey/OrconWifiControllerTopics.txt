@@ -1,0 +1,31 @@
+Topic Prefix: 'orconwificontroller20'
+Log Topic: 'orconwificontroller20/debug'
+Availability: 'orconwificontroller20/status'
+
+MQTT Switch 'Orcon Bypass Relay':
+State Topic: 'orconwificontroller20/switch/orcon_bypass_relay/state'
+Command Topic: 'orconwificontroller20/switch/orcon_bypass_relay/command'
+
+MQTT Fan 'Orcon Motor Speed':
+State Topic: 'orconwificontroller20/fan/orcon_motor_speed/state'
+Command Topic: 'orconwificontroller20/fan/orcon_motor_speed/command'
+Speed Level State Topic: 'orconwificontroller20/fan/orcon_motor_speed/speed_level/state'
+Speed Level Command Topic: 'orconwificontroller20/fan/orcon_motor_speed/speed_level/command'
+
+MQTT Sensor 'Orcon RPM Counter':
+State Topic: 'orconwificontroller20/sensor/orcon_rpm_counter/state'
+
+MQTT Sensor 'Orcon Remote Requested Speed':
+State Topic: 'orconwificontroller20/sensor/orcon_remote_requested_speed/state'
+
+MQTT Sensor 'Orcon Remote Requested Speed %':
+State Topic: 'orconwificontroller20/sensor/orcon_remote_requested_speed__/state'
+
+MQTT Sensor 'Orcon Temperature':
+State Topic: 'orconwificontroller20/sensor/orcon_temperature/state'
+
+MQTT Sensor 'Orcon Pressure':
+State Topic: 'orconwificontroller20/sensor/orcon_pressure/state'
+
+MQTT Sensor 'Orcon Humidity':
+State Topic: 'orconwificontroller20/sensor/orcon_humidity/state'
