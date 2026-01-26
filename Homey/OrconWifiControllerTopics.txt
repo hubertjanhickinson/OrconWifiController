@@ -1,3 +1,5 @@
+It might me that orconwificontroller20 and orconwificontrollermqtt are mixed up in this document. If orconwificontroller20 does not work, try using orconwificontrollermqtt.
+
 Topic Prefix: 'orconwificontroller20'
 Log Topic: 'orconwificontroller20/debug'
 Availability: 'orconwificontroller20/status'
