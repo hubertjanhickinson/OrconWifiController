@@ -1,11 +1,18 @@
 How to integrate the OrconWifiController into Homey using MQTT
 
-1. Make sure that you are running the correct firmware on the OrconWifiController.
-2. Make sure you have an MQTT broker set up and running.
-3. Configure the Wifi network and MQTT credentials on the OrconWifiController
-4. Add the OrconWifiController to Homey.
+1. Decide if you want to use custom firmware.
+2. Make sure that you are running the correct firmware on the OrconWifiController.
+3. Make sure you have an MQTT broker set up and running.
+4. Configure the Wifi network and MQTT credentials on the OrconWifiController
+5. Add the OrconWifiController to Homey.
 
-1. Make sure that you are running the correct firmware on the OrconWifiController.
+1. Decide if you want to use custom firmware
+- The disadvange of using my mqtt firmware on the OrconWifiController is that is does not remember the MQTT credentials after a power cycle.
+- If you build your own firmware, then you can enter the credentials during compiling, and they will be stored forever.
+- To build custom firmware, install ESPHome on your computer using this guide: https://esphome.io/guides/installing_esphome/
+- Copy and paste the yaml from 
+
+2. Make sure that you are running the correct firmware on the OrconWifiController.
 The reason for separate firmware is because the OrconWifiController will reboot every 15 minutes or so when it is not connected to an MQTT broker.
 - Power on the OrconWifiController using a USB cable
 - After a few minutes, a Wifi network named "OrconWifiController" should appear in your available networks.
@@ -16,17 +23,17 @@ The reason for separate firmware is because the OrconWifiController will reboot 
 - If you can see text fields to enter MQTT server details, you are running the correct firmware. If not, you need to flash the correct firmware using http://web.esphome.io/ or use the OTA upload button in the webserver.
 - The firmware file you can find here: https://github.com/hubertjanhickinson/OrconWifiController/blob/main/Homey/orconwificontrollermqtt.bin
 
-2. Make sure you have an MQTT broker set up and running.
+3. Make sure you have an MQTT broker set up and running.
 - If you do not already have an MQTT broker, you can install one using the Homey app store.
 - Install this app: https://homey.app/en-nl/app/nl.scanno.mqttbroker/MQTT-Broker/
 - Configure the app, remember the IP address, port, username and password you set for the MQTT broker.
 
-3. Setup the Wifi network and MQTT server on the OrconWifiController
+4. Setup the Wifi network and MQTT server on the OrconWifiController
 - Go to the OrconWifiController web page by using http://orconwificontrollermqtt/ or use the IP address of the OrconWifiController.
 - On the webpage, enter the details of the MQTT broker you set up in step 1 (IP address, port, username, password)
 - Click the "Save MQTT Config and Reboot" button to save changes and reboot.
 - Unfortunately, the settings will not be saved after a power cycle, so please remember this
 - If you know a solution for this, let me know.
 
-4. Add the OrconWifiController to Homey.
+5. Add the OrconWifiController to Homey.
 - Use the topics in 'OrconWifiControllerTopics.txt' to add MQTT devices in Homey.
