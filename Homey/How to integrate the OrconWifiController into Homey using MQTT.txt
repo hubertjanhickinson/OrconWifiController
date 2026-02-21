@@ -10,7 +10,11 @@ How to integrate the OrconWifiController into Homey using MQTT
 - The disadvange of using my mqtt firmware on the OrconWifiController is that is does not remember the MQTT credentials after a power cycle.
 - If you build your own firmware, then you can enter the credentials during compiling, and they will be stored forever.
 - To build custom firmware, install ESPHome on your computer using this guide: https://esphome.io/guides/installing_esphome/
-- Copy and paste the yaml from 
+- Copy and paste the yaml from orconwificontrollermqttcustom.yaml, insert your MQTT and wifi credentials and save the file.
+- Connect your OrconWifiController with a usb cable, open a command window in the folder where you saved orconwificontrollermqttcustom.yaml and run:
+- esphome run orconwificontrollermqttcustom.yaml
+- If it asks how to upload the file, select the serial port
+- Continue with steps 3 and 5 (the rest is not necessary as you already have the correct firmware)
 
 2. Make sure that you are running the correct firmware on the OrconWifiController.
 The reason for separate firmware is because the OrconWifiController will reboot every 15 minutes or so when it is not connected to an MQTT broker.
