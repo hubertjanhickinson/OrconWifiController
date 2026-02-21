@@ -25,6 +25,8 @@ The reason for separate firmware is because the OrconWifiController will reboot 
 - Go to the OrconWifiController web page by using http://orconwificontrollermqtt/ or use the IP address of the OrconWifiController.
 - On the webpage, enter the details of the MQTT broker you set up in step 1 (IP address, port, username, password)
 - Click the "Save MQTT Config and Reboot" button to save changes and reboot.
+- Unfortunately, the settings will not be saved after a power cycle, so please remember this
+- If you know a solution for this, let me know.
 
 4. Add the OrconWifiController to Homey.
 - Use the topics in 'OrconWifiControllerTopics.txt' to add MQTT devices in Homey.
