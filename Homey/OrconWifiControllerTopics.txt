@@ -1,35 +1,33 @@
-It might me that orconwificontroller20 and orconwificontrollermqtt are mixed up in this document. If orconwificontroller20 does not work, try using orconwificontrollermqtt.
-
-Topic Prefix: 'orconwificontroller20'
-Log Topic: 'orconwificontroller20/debug'
-Availability: 'orconwificontroller20/status'
+Topic Prefix: 'orconwificontrollermqtt'
+Log Topic: 'orconwificontrollermqtt/debug'
+Availability: 'orconwificontrollermqtt/status'
 
 MQTT Switch 'Orcon Bypass Relay':
-State Topic: 'orconwificontroller20/switch/orcon_bypass_relay/state'
-Command Topic: 'orconwificontroller20/switch/orcon_bypass_relay/command'
+State Topic: 'orconwificontrollermqtt/switch/orcon_bypass_relay/state'
+Command Topic: 'orconwificontrollermqtt/switch/orcon_bypass_relay/command'
 payload_on: "ON"
 payload_off: "OFF"
 
 MQTT Fan 'Orcon Motor Speed':
-State Topic: 'orconwificontroller20/fan/orcon_motor_speed/state'
-Command Topic: 'orconwificontroller20/fan/orcon_motor_speed/command'
-Speed Level State Topic: 'orconwificontroller20/fan/orcon_motor_speed/speed_level/state'
-Speed Level Command Topic: 'orconwificontroller20/fan/orcon_motor_speed/speed_level/command'
+State Topic: 'orconwificontrollermqtt/fan/orcon_motor_speed/state'
+Command Topic: 'orconwificontrollermqtt/fan/orcon_motor_speed/command'
+Speed Level State Topic: 'orconwificontrollermqtt/fan/orcon_motor_speed/speed_level/state'
+Speed Level Command Topic: 'orconwificontrollermqtt/fan/orcon_motor_speed/speed_level/command'
 
 MQTT Sensor 'Orcon RPM Counter':
-State Topic: 'orconwificontroller20/sensor/orcon_rpm_counter/state'
+State Topic: 'orconwificontrollermqtt/sensor/orcon_rpm_counter/state'
 
 MQTT Sensor 'Orcon Remote Requested Speed':
-State Topic: 'orconwificontroller20/sensor/orcon_remote_requested_speed/state'
+State Topic: 'orconwificontrollermqtt/sensor/orcon_remote_requested_speed/state'
 
 MQTT Sensor 'Orcon Remote Requested Speed %':
-State Topic: 'orconwificontroller20/sensor/orcon_remote_requested_speed__/state'
+State Topic: 'orconwificontrollermqtt/sensor/orcon_remote_requested_speed__/state'
 
 MQTT Sensor 'Orcon Temperature':
-State Topic: 'orconwificontroller20/sensor/orcon_temperature/state'
+State Topic: 'orconwificontrollermqtt/sensor/orcon_temperature/state'
 
 MQTT Sensor 'Orcon Pressure':
-State Topic: 'orconwificontroller20/sensor/orcon_pressure/state'
+State Topic: 'orconwificontrollermqtt/sensor/orcon_pressure/state'
 
 MQTT Sensor 'Orcon Humidity':
-State Topic: 'orconwificontroller20/sensor/orcon_humidity/state'
+State Topic: 'orconwificontrollermqtt/sensor/orcon_humidity/state'
