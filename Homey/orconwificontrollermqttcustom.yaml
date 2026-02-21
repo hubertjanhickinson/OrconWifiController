@@ -1,0 +1,94 @@
+esphome:
+  name: orconwificontrollermqtt
+
+esp8266:
+  board: d1_mini
+
+wifi:
+  ssid: "OrconTestWifi"
+  password: "WifiModule1234"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "OrconWifiController"
+    password: "12341234"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+ota:
+  - platform: esphome
+    password: "WifiModule1234"
+
+mqtt:
+  broker: "192.168.1.10"
+  username: "mqtt_user"
+  password: "mqtt_pass"
+
+web_server:
+  port: 80
+
+i2c:
+
+output:
+  - platform: esp8266_pwm
+    pin: D6
+    frequency: 1000 Hz
+    id: mv_pwm_out
+    inverted: true
+
+switch:
+  - platform: gpio
+    id: bypass
+    name: "Orcon Bypass Relay"
+    pin:
+      number: D8
+      inverted: False
+
+fan:
+  - platform: speed
+    output: mv_pwm_out
+    name: "Orcon Motor Speed"
+
+sensor:
+  - platform: pulse_counter
+    pin: D5
+    name: "Orcon RPM Counter"
+    force_update: true
+    update_interval: 10s
+    accuracy_decimals: 0
+    internal_filter: 5ms
+    count_mode:
+      falling_edge: INCREMENT
+      rising_edge: DISABLE
+  - platform: pulse_width
+    pin: D7
+    name: "Orcon Remote Requested Speed"
+    id: orcon_requested_speed
+    update_interval: 10s
+    accuracy_decimals: 8
+  - platform: template
+    name: "Orcon Remote Requested Speed %"
+    unit_of_measurement: "%"
+    accuracy_decimals: 0
+    update_interval: 10s
+    lambda: |-
+      const float min_pulse = 0.0000029;  // at 0% (0 RPM)
+      const float max_pulse = 0.0005332;  // at 100% (3500 RPM)
+      float value = id(orcon_requested_speed).state;
+      float percent = (value - min_pulse) * 100.0 / (max_pulse - min_pulse);
+      if (percent < 0) percent = 0;
+      if (percent > 100) percent = 100;
+      return percent;
+  - platform: bme280_i2c
+    temperature:
+      name: "Orcon Temperature"
+      oversampling: 16x
+    pressure:
+      name: "Orcon Pressure"
+    humidity:
+      name: "Orcon Humidity"
+    address: 0x76
+    update_interval: 10s
