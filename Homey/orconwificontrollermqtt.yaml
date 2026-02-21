@@ -1,21 +1,15 @@
 esphome:
   name: orconwificontrollermqtt
   on_boot:
-    priority: -100 
+    priority: 200.0 
     then:
       - lambda: |-
-          auto *mqtt_client = mqtt::global_mqtt_client;
-          
-          // Get values from text input fields
-          std::string host = id(mqtt_host_input).state;
-          std::string user = id(mqtt_user_input).state;
-          std::string pass = id(mqtt_pass_input).state;
-
-          if (!host.empty() && host != "empty") {
-            mqtt_client->set_broker_address(host);
-            mqtt_client->set_username(user);
-            mqtt_client->set_password(pass);
-            ESP_LOGI("custom", "MQTT config loaded successfully: %s", host.c_str());
+          if (!id(storage_mqtt_host).empty()) {
+            auto *mqtt_client = id(my_mqtt_client);
+            mqtt_client->set_broker_address(id(storage_mqtt_host).c_str());
+            mqtt_client->set_username(id(storage_mqtt_user).c_str());
+            mqtt_client->set_password(id(storage_mqtt_pass).c_str());
+            ESP_LOGI("custom", "MQTT Restored: %s", id(storage_mqtt_host).c_str());
           }
 
 esp8266:
@@ -35,9 +29,6 @@ captive_portal:
 # Enable logging
 logger:
 
-# Enable Home Assistant API
-api:
-
 ota:
   - platform: esphome
     password: "WifiModule1234"
@@ -49,34 +40,67 @@ mqtt:
 web_server:
   port: 80
 
+globals:
+  - id: storage_mqtt_host
+    type: std::string
+    restore_value: yes
+  - id: storage_mqtt_user
+    type: std::string
+    restore_value: yes
+  - id: storage_mqtt_pass
+    type: std::string
+    restore_value: yes
+
+
 text:
   - platform: template
-    name: "MQTT Hostname/IP address"
+    name: "MQTT Hostname"
     id: mqtt_host_input
     mode: text
-    optimistic: true
-    min_length: 0
-    max_length: 64
-    restore_value: yes
-    initial_value: ""
+    lambda: |-
+      return id(storage_mqtt_host);
+    set_action:
+      then:
+        - lambda: |-
+            id(storage_mqtt_host) = x;
+
   - platform: template
     name: "MQTT Username"
     id: mqtt_user_input
     mode: text
-    optimistic: true
-    min_length: 0
-    max_length: 64
-    restore_value: yes
-    initial_value: ""
+    lambda: |-
+      return id(storage_mqtt_user);
+    set_action:
+      then:
+        - lambda: |-
+            id(storage_mqtt_user) = x;
+
   - platform: template
     name: "MQTT Password"
     id: mqtt_pass_input
     mode: text
-    optimistic: true
-    min_length: 0
-    max_length: 64
-    restore_value: yes
-    initial_value: ""
+    lambda: |-
+      return id(storage_mqtt_pass);
+    set_action:
+      then:
+        - lambda: |-
+            id(storage_mqtt_pass) = x;
+
+button:
+  - platform: template
+    name: "Save MQTT Config and Reboot"
+    id: save_reboot_button
+    icon: "mdi:content-save-cog"
+    on_press:
+      then:
+        - logger.log: "Committing values to Flash and restarting..."
+        - lambda: "global_preferences->sync();"
+        - delay: 1s
+        - button.press: internal_reboot
+  - platform: restart
+    id: internal_reboot
+    name: "Internal Reboot"
+    internal: true
 
 i2c:
 
