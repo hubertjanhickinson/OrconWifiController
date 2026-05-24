@@ -61,25 +61,12 @@ sensor:
     count_mode:
      falling_edge: INCREMENT
      rising_edge: DISABLE
-  - platform: pulse_width
+  - platform: duty_cycle
     pin: D7
     name: "Orcon Remote Requested Speed"
     id: orcon_requested_speed
     update_interval: 10s
-    accuracy_decimals: 8
-  - platform: template
-    name: "Orcon Remote Requested Speed %"
-    unit_of_measurement: "%"
     accuracy_decimals: 0
-    update_interval: 10s
-    lambda: |-
-      const float min_pulse = 0.0000029;  // at 0% (0 RPM)
-      const float max_pulse = 0.0005332;  // at 100% (3500 RPM)
-      float value = id(orcon_requested_speed).state;
-      float percent = (value - min_pulse) * 100.0 / (max_pulse - min_pulse);
-      if (percent < 0) percent = 0;
-      if (percent > 100) percent = 100;
-      return percent;
   - platform: bme280_i2c
     temperature:
       name: "Orcon Temperature"
